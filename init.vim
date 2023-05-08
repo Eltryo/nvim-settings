@@ -12,6 +12,25 @@ call plug#begin()
 	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " markdown previewer
 call plug#end()
 
+" VARIABLES
+
+let mapleader=" "
+
+" vimtex
+let g:vimtex_compiler_method = 'latexmk'
+
+" netrw
+let g:netrw_banner = 0
+let g:netrw_keepdir = 0
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+
+nnoremap <Leader>p :Ex<CR>
+
+" editor
+
+:nnoremap <silent><A-k> :let save_a=@a<Cr><Up>"add"ap<Up>:let @a=save_a<Cr>
+:nnoremap <silent><A-j> :let save_a=@a<Cr>"add"ap:let @a=save_a<Cr>
+
 " REMAPS 
 
 " new lines with normal mode
@@ -37,16 +56,3 @@ inoremap <silent><expr> <Tab>
 inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
 inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 
-" VARIABLES
-
-let mapleader=" "
-
-" vimtex
-let g:vimtex_compiler_method = 'latexmk'
-
-" netrw
-let g:netrw_banner = 0
-let g:netrw_keepdir = 0
-let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
-
-nnoremap <Leader>p :Ex<CR>
